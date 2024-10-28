@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Font Control</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 2px solid #333;
+        border-radius: 5px;
+    }
+
+    input[type="text"] {
+        width: 200px;
+        padding: 8px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        padding: 8px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <p id="paragraph">You were the chosen one! It was said that you would destroy the Sith, not join them! Bring balance to the Force, not leave it in darkness</p>
+    <label for="color">RGB Color:</label>
+    <input type="text" id="color" placeholder="e.g., 255, 0, 0">
+    <label for="border-width">Border Width:</label>
+    <input type="text" id="border-width" placeholder="e.g., 2">
+    <input type="submit" value="Apply" onclick="applyStyles()">
+</div>
+
+<script>
+    function applyStyles() {
+        var color = document.getElementById("color").value;
+        var borderWidth = document.getElementById("border-width").value;
+
+        // Split the RGB values
+        var rgb = color.split(",");
+
+        // Apply styles to the paragraph
+        var paragraph = document.getElementById("paragraph");
+        paragraph.style.color = "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")";
+        paragraph.style.borderColor = "rgb(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ")";
+        paragraph.style.borderWidth = borderWidth + "px";
+    }
+</script>
+
+</body>
+</html>
